@@ -22,7 +22,6 @@ using System.IdentityModel.Services;
 using System.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Security.Principal;
-using IdentityModel.Constants;
 using System.Threading.Tasks;
 using IdentityServer.WindowsAuthentication.Services;
 
@@ -92,7 +91,7 @@ namespace IdentityServer.WindowsAuthentication
                 SigningCredentials = new X509SigningCredentials(_options.SigningCertificate),
                 Subject = outgoingSubject,
                 TokenIssuerName = _options.IssuerUri,
-                TokenType = TokenTypes.Saml2TokenProfile11
+                TokenType = "urn:oasis:names:tc:SAML:2.0:assertion"
             };
 
             return CreateSupportedSecurityTokenHandler().CreateToken(descriptor);

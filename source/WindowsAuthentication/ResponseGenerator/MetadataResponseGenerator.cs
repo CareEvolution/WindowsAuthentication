@@ -53,9 +53,8 @@ namespace IdentityServer.WindowsAuthentication
             tokenService.PassiveRequestorEndpoints.Add(new EndpointReference(wsfedEndpoint));
             tokenService.SecurityTokenServiceEndpoints.Add(new EndpointReference(wsfedEndpoint));
 
-            tokenService.TokenTypesOffered.Add(new Uri(TokenTypes.OasisWssSaml11TokenProfile11));
-            tokenService.TokenTypesOffered.Add(new Uri(TokenTypes.OasisWssSaml2TokenProfile11));
-            tokenService.TokenTypesOffered.Add(new Uri(TokenTypes.JsonWebToken));
+            tokenService.TokenTypesOffered.Add(new Uri("http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0"));
+            tokenService.TokenTypesOffered.Add(new Uri("urn:ietf:params:oauth:token-type:jwt"));
 
             tokenService.ProtocolsSupported.Add(new Uri("http://docs.oasis-open.org/wsfed/federation/200706"));
 
