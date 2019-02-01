@@ -16,13 +16,13 @@
 
 using IdentityServer.WindowsAuthentication.Configuration;
 using IdentityServer.WindowsAuthentication.Logging;
+using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
-using IdentityModel;
-using IdentityModel.Tokens;
+using System.Xml;
 
 namespace IdentityServer.WindowsAuthentication
 {
@@ -65,7 +65,7 @@ namespace IdentityServer.WindowsAuthentication
             }
 
             claims.Add(new Claim(ClaimTypes.AuthenticationMethod, AuthenticationMethods.Windows));
-            claims.Add(AuthenticationInstantClaim.Now);
+            claims.Add(new Claim(ClaimTypes.AuthenticationInstant, XmlConvert.ToString(DateTime.UtcNow, "yyyy-MM-ddTHH:mm:ss.fffZ"), ClaimValueTypes.DateTime));
 
             return new ClaimsIdentity(claims, "Windows");
         }

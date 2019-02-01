@@ -19,7 +19,6 @@ using System;
 using System.IdentityModel.Metadata;
 using System.IdentityModel.Protocols.WSTrust;
 using System.IdentityModel.Tokens;
-using IdentityModel.Constants;
 
 namespace IdentityServer.WindowsAuthentication
 {
