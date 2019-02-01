@@ -92,7 +92,7 @@ namespace IdentityServer.WindowsAuthentication
                 SigningCredentials = new X509SigningCredentials(_options.SigningCertificate),
                 Subject = outgoingSubject,
                 TokenIssuerName = _options.IssuerUri,
-                TokenType = TokenTypes.JsonWebToken
+                TokenType = TokenTypes.Saml2TokenProfile11
             };
 
             return CreateSupportedSecurityTokenHandler().CreateToken(descriptor);
@@ -102,7 +102,7 @@ namespace IdentityServer.WindowsAuthentication
         {
             return new SecurityTokenHandlerCollection(new SecurityTokenHandler[]
             {
-                new JwtSecurityTokenHandler()
+                new Saml2SecurityTokenHandler()
             });
         }
     }
