@@ -16,7 +16,8 @@
 
 using Microsoft.Owin.Security;
 using System;
-using System.IdentityModel.Tokens;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace IdentityServer.WindowsAuthentication.Configuration
 {
